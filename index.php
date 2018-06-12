@@ -1,65 +1,19 @@
 <!doctype html>
 <html lang="en">
 <head>
-   <title>Online Image Uploader - PHP using IMGUR</title>
+   <title>Online Image Uploader - with PHP using IMGUR</title>
    <meta charset="utf-8">
    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
-   <style>
-	.uploader {
-	  display:table;
-	  position:relative;
-	  overflow:hidden;
-	  width:300px;
-	  height:300px;
-	  background:#f3f3f3;
-	  border:2px dashed #e8e8e8;
-	}
-	.innerUploader {
-	  display:table-cell;
-	  position:relative;
-	  outline:2px dashed red;
-	  outline-offset: -3px;
-	  justify-content:center;
-	  align-items:center;
-	  overflow:hidden;
-	  vertical-align:middle;
-	  text-align:center;
-	}
-	#filePhoto{
-	    position:absolute;
-	    width:290px;
-	    height:290px;
-	    top:-5px;
-	    left:0;
-	    z-index:2;
-	    opacity:0;
-	    cursor:pointer;
-	}
-	.uploader img{
-	    position:absolute;
-	    height:300px;
-	    width:300;
-	    top:-1px;
-	    left:-1px;
-	    z-index:1;
-	    border:none;
-	    min-width:100%;
-	    min-height:100%;
-	}
-	#imgur-image{
-	    max-width:100%;
-	}
-	.hidden {
-	  display:none;
-	}   
-  </style>
+   <link rel="stylesheet" href="css/style.css?v=1">
 </head>
 <body>
 <div class="container">
-<h4>Upload Image : </h4>
+<h2 class="text-center">Imgur PHP Image Uploader</h2>
+<hr/>
 <div class="row">
 <form class="col-sm" action="" enctype="multipart/form-data" method="POST">
+<h4>Upload Image : </h4>
 <div class="uploader" onclick="$('#filePhoto').click()">
 <div class="innerUploader">
     Select Image
@@ -96,12 +50,12 @@ if(isset($_POST['submit'])){
   $pms = json_decode($out,true);
   $url=$pms['data']['link'];
   if($url!=''){
-   echo "<h2>Uploaded Without Any Problem</h2>";
-   echo "<input type='text' id='image-link' value='$url'/><button onclick='copyToClipboard()'>Copy link</button><br/><hr/>";
+   echo "<h4 bg-success>Uploaded Without Any Problem</h4>";
+   echo "<input type='text' id='image-link' value='$url'/><button onclick='copyToClipboard()'>Copy link</button><br/><hr/><h5>Preview : </h5>";
    echo "<img id='imgur-image' alt='imgur-image' src='$url'/>";
   }
   else{
-   echo "<h2>There’s a Problem</h2>";
+   echo "<h4 class='bg-danger'>There’s a Problem</h4>";
    echo "<div>".$pms['data']['error']."</div>";  
   } 
  }
