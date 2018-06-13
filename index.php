@@ -32,7 +32,7 @@ if(isset($_POST['submit'])){
  }
  else {
   $filename = $img['tmp_name'];
-  $client_id='67fd839d20ce847';
+  $client_id='67fd839d20ce847';		// Replace this with your client_id, if you want images to be uploaded under your imgur account
   $handle = fopen($filename, 'r');
   $data = fread($handle, filesize($filename));
   $pvars = array('image' => base64_encode($data));
@@ -51,7 +51,7 @@ if(isset($_POST['submit'])){
   $url=$pms['data']['link'];
   if($url!=''){
    echo "<h4 bg-success>Uploaded Without Any Problem</h4>";
-   echo "<input type='text' id='image-link' value='$url'/><button onclick='copyToClipboard()'>Copy link</button><br/><hr/><h5>Preview : </h5>";
+   echo "<input type='text' id='image-link' value='".substr($url,8,-4)."'/><button onclick='copyToClipboard()'>Copy link</button><br/><hr/><h5>Preview : </h5>";
    echo "<img id='imgur-image' alt='imgur-image' src='$url'/>";
   }
   else{
@@ -66,7 +66,7 @@ if(isset($_POST['submit'])){
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script>
 var imageLoader = document.getElementById('filePhoto');
-    imageLoader.addEventListener('change', handleImage, false);
+imageLoader.addEventListener('change', handleImage, false);
 
 function handleImage(e) {
     var reader = new FileReader();
@@ -82,7 +82,6 @@ function copyToClipboard() {
   document.execCommand("copy");
   alert("Copied the link: " + copyText.value);
 }
-
 </script>
 </body>
 </html>
