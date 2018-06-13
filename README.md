@@ -13,5 +13,8 @@ Now, we can easily obtain imgur link for any photos we like. Simply select the i
 	Imgur API : API provided by Imgur - an image sharing community
 	Other Basic Frontend Developments : HTML5, CSS3 and JavaScript(JQuery)
 
+## Screenshot :
+
+![Screenshot](https://i.imgur.com/fHcThQq.png)
 
 Made with ❤️ from Karnali, Nepal
