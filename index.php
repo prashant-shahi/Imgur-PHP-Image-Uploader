@@ -51,7 +51,7 @@ if(isset($_POST['submit'])){
   $url=$pms['data']['link'];
   if($url!=''){
    echo "<h4 bg-success>Uploaded Without Any Problem</h4>";
-   echo "<input type='text' id='image-link' value='".substr($url,8,-4)."'/><button onclick='copyToClipboard()'>Copy link</button><br/><hr/><h5>Preview : </h5>";
+   echo "<input type='text' id='image-link' value='".substr($url,8)."'/><button onclick='copyToClipboard()'>Copy link</button><br/><hr/><h5>Preview : </h5>";
    echo "<img id='imgur-image' alt='imgur-image' src='$url'/>";
   }
   else{
